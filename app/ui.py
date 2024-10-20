@@ -46,11 +46,11 @@ for id1, d1 in ids1.items():
         for id2, d2 in ids2.items():
             ids3 = tnved_3(id2)
 
-            with st.expander(f"**{id1} {id2}.** {d2['name2']}"):
+            with st.expander(f"**{id1} {id2}. {d2['name2']}**"):
                 if d2['rem2']:
                     if f'{id1}_{id2}_rem_state' not in st.session_state:
                         st.session_state[f'{id1}_{id2}_rem_state' ] = False
-                    show_2_rem = st.button(f'Примечание к **{id1} {id2}**', key=id1+id2)#, use_container_width=True)
+                    show_2_rem = st.button(f'**Примечание к {id1} {id2}**', key=id1+id2)#, use_container_width=True)
                     if show_2_rem:
                         if st.session_state[f'{id1}_{id2}_rem_state' ]:
                             st.session_state[f'{id1}_{id2}_rem_state'] = False
@@ -63,12 +63,8 @@ for id1, d1 in ids1.items():
                     if f'{id1}_{id2}_{id3}_state' not in st.session_state:
                         st.session_state[f'{id1}_{id2}_{id3}_state'] = False
     
-                    show_4 = st.button(f"**{id1} {id2} {id3}.** {d3['name3']}", key = id1+id2+id3, use_container_width=True)
-                    st.markdown("""<style>
-                        .stButton button {
-                        }
-                    </style>
-                    """, unsafe_allow_html=True)
+                    show_4 = st.button(f"{id1} {id2} {id3}. {d3['name3']}", key = id1+id2+id3, use_container_width=True)
+
                     if show_4:
                         if st.session_state[f'{id1}_{id2}_{id3}_state']:
                             st.session_state[f'{id1}_{id2}_{id3}_state'] = False
