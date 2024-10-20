@@ -1,6 +1,7 @@
 import pandas as pd
 from datetime import datetime
 from colorama import Fore
+import streamlit as st
 
 def data_parcer(data_str):
     try:
@@ -15,6 +16,7 @@ def tnved_1():
                      names=['id1', 'name1', 'rem1', 'date'],
                      skiprows=1,
                      dtype='str')
+    df = df.fillna("")    
 
     df['date'] = df['date'].apply(data_parcer)
     ids1 = sorted(list(set(df['id1'])))
@@ -34,7 +36,7 @@ def tnved_2(id1='01'):
                      names=['id1', 'id2', 'name2', 'rem2', 'date'],
                      skiprows=1,
                      dtype='str')
-
+    df = df.fillna("")
     df['date'] = df['date'].apply(data_parcer)
     id1_df = df[df['id1']==id1]
 
@@ -55,7 +57,7 @@ def tnved_3(id2='01'):
                      names=['id2', 'id3', 'name3', 'date'],
                      skiprows=1,
                      dtype='str')
-
+    df = df.fillna("")
     df['date'] = df['date'].apply(data_parcer)
 
     id2_df = df[df['id2']==id2]
@@ -77,6 +79,7 @@ def tnved_4(id2='01', id3='01'):
                      names=['id2', 'id3', 'id4', 'name4', 'date'],
                      skiprows=1,
                      dtype='str') 
+    df = df.fillna("")    
     df['date'] = df['date'].apply(data_parcer)
     id23_df = df[(df['id2']==id2) & (df['id3']==id3)]
     ids4 = sorted(list(set(id23_df['id4'])))
@@ -89,6 +92,17 @@ def tnved_4(id2='01', id3='01'):
         
     return res
 
+def change_label_style(label, font_size='12px', font_color='black', font_family='sans-serif'):
+    html = f"""
+    <script>
+        var elems = window.parent.document.querySelectorAll('p');
+        var elem = Array.from(elems).find(x => x.innerText == '{label}');
+        elem.style.fontSize = '{font_size}';
+        elem.style.color = '{font_color}';
+        elem.style.fontFamily = '{font_family}';
+    </script>
+    """
+    st.components.v1.html(html)
 
 if __name__ == '__main__':
     print(Fore.YELLOW, tnved_1(), Fore.WHITE)
