@@ -32,7 +32,7 @@ for id1, d1 in ids1.items():
                        use_container_width=True)
 
     if st.session_state[f'{id1}_state']:
-        if d1['rem1']:
+        if d1['rem1'] and d1['rem1']!=' ':
             if f'{id1}_rem_state' not in st.session_state:
                 st.session_state[f'{id1}_rem_state'] = False
             show_1_rem = st.button(f'**Примечание к {id1}**',
@@ -60,8 +60,10 @@ for id1, d1 in ids1.items():
                                             args=[st.session_state,
                                                     f'{id1}_{id2}_rem_state'])
 
-                        if st.session_state[f'{id1}_{id2}_rem_state' ]:        
-                            st.write(f">{d2['rem2']}")
+                        if st.session_state[f'{id1}_{id2}_rem_state' ]: 
+                            height = 500 if len(d2["rem2"])>1880 else None    
+                            with st.container(height=height):       
+                                st.write(f">{d2['rem2']}")
 
                 for id3, d3 in ids3.items():
                     if f'{id1}_{id2}_{id3}_state' not in st.session_state:

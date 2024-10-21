@@ -1,7 +1,7 @@
 import pandas as pd
 from datetime import datetime
 from colorama import Fore
-import streamlit as st
+import os
 
 def data_parcer(data_str):
     try:
@@ -20,7 +20,7 @@ def change_button_status(session_state, key):
 
 
 def get_tnved_1_df():
-    df = pd.read_csv('TNVED1.TXT',
+    df = pd.read_csv(os.path.join('data', 'TNVED1.TXT'),
                     encoding = 'cp866',
                     sep='|', usecols=[0, 1, 2, 3],
                     names=['id1', 'name1', 'rem1', 'date'],
@@ -41,7 +41,7 @@ def tnved_1(df=get_tnved_1_df()):
 
 
 def get_tnved_2_df():
-    df = pd.read_csv('TNVED2.TXT',
+    df = pd.read_csv(os.path.join('data', 'TNVED2.TXT'),
                     encoding = 'cp866',
                     sep='|',
                     usecols=[0, 1, 2, 3, 4],
@@ -64,7 +64,7 @@ def tnved_2(df=get_tnved_2_df(), id1='01'):
     return res
 
 def get_tnved_3_df():
-    df = pd.read_csv('TNVED3.TXT',
+    df = pd.read_csv(os.path.join('data', 'TNVED3.TXT'),
                     encoding = 'cp866',
                     sep='|',
                     usecols=[0, 1, 2, 3],
@@ -88,7 +88,7 @@ def tnved_3(df=get_tnved_3_df(), id2='01'):
 
 
 def get_tnved_4_df():
-    df = pd.read_csv('TNVED4.TXT',
+    df = pd.read_csv(os.path.join('data', 'TNVED4.TXT'),
                     encoding = 'cp866',
                     sep='|',
                     usecols=[0, 1, 2, 3, 4],
@@ -115,8 +115,8 @@ def tnved_4(df=get_tnved_4_df(), id2='01', id3='01'):
 
 
 if __name__ == '__main__':
-    print(Fore.YELLOW, tnved_1(), Fore.WHITE)
-    print(Fore.CYAN, tnved_2('01'), Fore.WHITE)
-    print(Fore.MAGENTA, tnved_3('02'), Fore.WHITE)
-    for k, v in tnved_4('02', '03').items():
-        print(Fore.BLUE, k,v, Fore.WHITE)
+    print(Fore.YELLOW, get_tnved_4_df(), Fore.WHITE)
+    #print(Fore.CYAN, tnved_2('01'), Fore.WHITE)
+    #print(Fore.MAGENTA, tnved_3('02'), Fore.WHITE)
+    #for k, v in tnved_4('02', '03').items():
+    #    print(Fore.BLUE, k,v, Fore.WHITE)

@@ -1,5 +1,5 @@
 .venv
-aaa.py
+aaa.*
 test.py
 ~*
 __pycache__
