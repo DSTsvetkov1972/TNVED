@@ -1,19 +1,24 @@
+# services:
+#  service:
+#    image: <service-name>:latest
+#    restart: unless-stopped
+#    volumes:
+#      - ./service/:/app/
+#      - output:/tmp/output/
+#      - models:/tmp/models/
+#      - data:/tmp/data/
+#    ports:
+#      - ${STREAMLIT_RUN_PORT}:${STREAMLIT_RUN_PORT}
+#    env_file:
+#      - ./.env
+#
+#volumes:
+#  output:
+#  models:
+#  data:
+
 services:
   service:
-    image: <service-name>:latest
-    restart: unless-stopped
-    volumes:
-      - ./service/:/app/
-      - output:/tmp/output/
-      - models:/tmp/models/
-      - data:/tmp/data/
+    build: /home/username/TNVED
     ports:
-      - ${STREAMLIT_RUN_PORT}:${STREAMLIT_RUN_PORT}
-    env_file:
-      - ./.env
-
-
-volumes:
-  output:
-  models:
-  data:
+      - 8505:8505
