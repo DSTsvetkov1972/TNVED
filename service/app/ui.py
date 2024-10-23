@@ -13,7 +13,7 @@ if 'tnved_3_df' not in st.session_state:
 if 'tnved_4_df' not in st.session_state:
     st.session_state.tnved_4_df = get_tnved_4_df()
 
-st.markdown('<h1 style="color:darkred; font-weight:bold; font-size:48px; text-align:center">'
+st.markdown('<h1 style="color:darkred; font-weight:bold; text-align:center">'
             'Товарная номенклатура внешнеэкономической деятельности (ТНВЭД)</h1>', unsafe_allow_html=True)  
 st.markdown('<p style="color:darkred; text-align:center">'
             'По данным сайта <a href="(https://www.nalog.gov.ru/rn77/program/5961290/">'
