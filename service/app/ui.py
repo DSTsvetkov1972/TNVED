@@ -16,7 +16,7 @@ if 'tnved_4_df' not in st.session_state:
 st.markdown('<h1 style="color:darkred; font-weight:bold; text-align:center">'
             'Товарная номенклатура внешнеэкономической деятельности (ТНВЭД)</h1>', unsafe_allow_html=True)  
 st.markdown('<p style="color:darkred; text-align:center">'
-            'По данным сайта <a href="(https://www.nalog.gov.ru/rn77/program/5961290/">'
+            'По данным сайта <a href="https://www.nalog.gov.ru/rn77/program/5961290/">'
             'www.nalog.gov.ru</a> опубликованным 17-10-2024',
             unsafe_allow_html=True)
 
