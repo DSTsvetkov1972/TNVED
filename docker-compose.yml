@@ -19,6 +19,6 @@
 
 services:
   service:
-    build: /home/username/TNVED
+    build: /home/tsvetkovds/TNVED
     ports:
       - 8505:8501
