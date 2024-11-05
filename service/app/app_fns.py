@@ -112,11 +112,17 @@ def tnved_4(df=get_tnved_4_df(), id2='01', id3='01'):
         
     return res
 
+def get_manual():
+    '''Выделяет раздел "Инструкция" предназначенный для пользователя системы'''
+    '''из README.md'''
+    with open('README.md', 'r', encoding='utf-8') as readme_md:
+        lines = readme_md.readlines()
+
+    manual_lines = [line for line in lines if lines.index(line)>=lines.index("## Инструкция \n")]
+
+    return ''.join(manual_lines)
+
 
 
 if __name__ == '__main__':
-    print(Fore.YELLOW, get_tnved_4_df(), Fore.WHITE)
-    #print(Fore.CYAN, tnved_2('01'), Fore.WHITE)
-    #print(Fore.MAGENTA, tnved_3('02'), Fore.WHITE)
-    #for k, v in tnved_4('02', '03').items():
-    #    print(Fore.BLUE, k,v, Fore.WHITE)
+    print(get_manual())
