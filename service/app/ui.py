@@ -16,12 +16,10 @@ if 'tnved_4_df' not in st.session_state:
 if 'show_manual' not in st.session_state:
     st.session_state.show_manual = False
 
-tab1, tab2 = st.tabs(["Приложение", "Инструкция"])
+tab1, tab2, tab3, tab4 = st.tabs(["Справочник", "Подбор по описанию", "Подобор по списку описаний", "Инструкция"])
 
+                   
 with tab1:
-    with st.sidebar:
-        st.container()
-
     st.markdown('<h1 style="color:darkred; font-weight:bold; text-align:center">'
                 'Товарная номенклатура внешнеэкономической деятельности (ТНВЭД)</h1>', unsafe_allow_html=True)  
 
